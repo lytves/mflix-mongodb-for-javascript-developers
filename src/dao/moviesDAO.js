@@ -62,7 +62,7 @@ export default class MoviesDAO {
       // here is only included to avoid sending 46000 documents down the
       // wire.
 
-      let query = { countries: { $in: countries } }
+      let query = { "countries": { $in: countries } }
       let projection = { title: 1 }
 
       cursor = await movies.find(query, { projection })
@@ -118,9 +118,9 @@ export default class MoviesDAO {
 
     const searchGenre = Array.isArray(genre) ? genre : Array(genre)
 
-    // TODO Ticket: Text and Subfield Search
+    // RESOLVED - TODO Ticket: Text and Subfield Search
     // Construct a query that will search for the chosen genre.
-    const query = {}
+    const query = { "genres": { $in: searchGenre}}
     const project = {}
     const sort = DEFAULT_SORT
 
