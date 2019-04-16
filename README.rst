@@ -3,6 +3,7 @@ Welcome to M220JS - MongoDB University
 ================
 
 Learn everything you need to know to get started building a MongoDB-based app in Node.js. `M220JS: MongoDB for Javascript Developers course <https://university.mongodb.com/courses/M220JS/about>`_
+
 This is a short guide on setting up the system and environment dependencies
 required for the MFlix application to run.
 
