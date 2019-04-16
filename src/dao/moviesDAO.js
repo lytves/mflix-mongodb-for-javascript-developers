@@ -56,12 +56,16 @@ export default class MoviesDAO {
 
     let cursor
     try {
-      // TODO Ticket: Projection
+      // RESOLVED  - TODO Ticket: Projection
       // Find movies matching the "countries" list, but only return the title
       // and _id. Do not put a limit in your own implementation, the limit
       // here is only included to avoid sending 46000 documents down the
       // wire.
-      cursor = await movies.find().limit(1)
+
+      let query = { countries: { $in: countries } }
+      let projection = { title: 1 }
+
+      cursor = await movies.find(query, { projection })
     } catch (e) {
       console.error(`Unable to issue find command, ${e}`)
       return []
