@@ -339,8 +339,13 @@ export default class MoviesDAO {
       When this specific error is thrown, the method should return `null`.
       */
 
-      // TODO Ticket: Error Handling
+      // RESOLVED - TODO Ticket: Error Handling
       // Catch the InvalidId error by string matching, and then handle it.
+
+      if (e.toString().startsWith("Error")) {
+        return null
+      }
+
       console.error(`Something went wrong in getMovieByID: ${e}`)
       throw e
     }
